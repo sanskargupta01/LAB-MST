@@ -1,0 +1,873 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      180deg,
+      #071b2b 0%,
+      #123b52 35%,
+      #6d9eae 65%,
+      #dce8e8 100%
+    );
+
+  background-attachment: fixed;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+/* =========================
+   APP
+========================= */
+
+.app {
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 40px 20px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* Mountain background */
+
+.app::before {
+  content: "";
+
+  position: fixed;
+
+  left: -10%;
+
+  bottom: 0;
+
+  width: 120%;
+
+  height: 45%;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0 15%,
+      #163d4d 15% 28%,
+      transparent 28% 35%,
+      #214d5c 35% 52%,
+      transparent 52% 60%,
+      #173f4e 60% 78%,
+      transparent 78%
+    );
+
+  opacity: 0.65;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+.app::after {
+  content: "▲        ▲             ▲";
+
+  position: fixed;
+
+  bottom: 24%;
+
+  left: 5%;
+
+  width: 90%;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 90px;
+
+  letter-spacing: 35px;
+
+  pointer-events: none;
+
+  opacity: 0.35;
+
+  z-index: 0;
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-card {
+  width: 430px;
+
+  max-width: 100%;
+
+  padding: 45px;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  border-radius: 24px;
+
+  text-align: center;
+
+  box-shadow:
+    0 25px 70px rgba(0, 30, 45, 0.4);
+
+  position: relative;
+
+  z-index: 2;
+
+  animation: mountainAppear 0.7s ease;
+}
+
+
+.mountain-logo {
+  width: 85px;
+
+  height: 85px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #123b52,
+      #4f8999
+    );
+
+  border-radius: 50%;
+
+  font-size: 40px;
+
+  box-shadow:
+    0 10px 25px rgba(18, 59, 82, 0.35);
+}
+
+
+.login-card h1 {
+  margin: 0;
+
+  color: #123b52;
+
+  font-size: 31px;
+}
+
+
+.subtitle {
+  color: #71838b;
+
+  margin-top: 10px;
+
+  margin-bottom: 30px;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-group {
+  text-align: left;
+
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+
+  color: #244957;
+
+  font-weight: bold;
+
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 2px solid #d6e0e3;
+
+  border-radius: 12px;
+
+  outline: none;
+
+  font-size: 16px;
+
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #39788a;
+
+  box-shadow:
+    0 0 0 4px rgba(57, 120, 138, 0.12);
+}
+
+
+/* =========================
+   LOGIN BUTTONS
+========================= */
+
+.login-buttons {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.login-buttons button {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  transition: 0.25s;
+}
+
+.admin-btn {
+  background:
+    linear-gradient(
+      135deg,
+      #123b52,
+      #39788a
+    );
+
+  color: white;
+}
+
+.viewer-btn {
+  background: #edf4f5;
+
+  color: #244957;
+
+  border: 1px solid #d2e1e4 !important;
+}
+
+.admin-btn:hover,
+.viewer-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 20px rgba(0, 40, 60, 0.2);
+}
+
+.info {
+  color: #8a9ba0;
+
+  font-size: 13px;
+
+  margin-top: 25px;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard-card {
+  width: 750px;
+
+  max-width: 100%;
+
+  padding: 35px;
+
+  background:
+    rgba(255, 255, 255, 0.97);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 25px 70px rgba(0, 30, 45, 0.4);
+
+  position: relative;
+
+  z-index: 2;
+
+  animation: mountainAppear 0.7s ease;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.dashboard-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid #dfe8ea;
+}
+
+.location-label {
+  color: #56818d;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 8px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+
+  color: #123b52;
+
+  font-size: 30px;
+}
+
+.role-text {
+  color: #809197;
+
+  margin-top: 8px;
+}
+
+.admin {
+  color: #39788a;
+
+  font-weight: bold;
+}
+
+.viewer {
+  color: #4f856b;
+
+  font-weight: bold;
+}
+
+.user-icon {
+  width: 70px;
+
+  height: 70px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #dcecee,
+      #f4f8f8
+    );
+
+  border-radius: 50%;
+
+  font-size: 32px;
+}
+
+
+/* =========================
+   ACCESS
+========================= */
+
+.access-box {
+  padding: 23px;
+
+  margin-bottom: 20px;
+
+  border-radius: 14px;
+}
+
+.access-box h2 {
+  margin-top: 0;
+
+  color: #183f50;
+}
+
+.admin-access {
+  background:
+    linear-gradient(
+      135deg,
+      #e9f2f4,
+      #f7fbfb
+    );
+
+  border-left: 5px solid #39788a;
+}
+
+.viewer-access {
+  background:
+    linear-gradient(
+      135deg,
+      #eaf5ef,
+      #f7fbf8
+    );
+
+  border-left: 5px solid #4f856b;
+}
+
+
+/* =========================
+   ADMIN
+========================= */
+
+.admin-section {
+  margin-top: 25px;
+}
+
+.create-btn {
+  width: 100%;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #39788a,
+      #245a6d
+    );
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  transition: 0.25s;
+}
+
+.create-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(36, 90, 109, 0.25);
+}
+
+
+/* =========================
+   CREATE POST
+========================= */
+
+.create-post-box {
+  margin-top: 20px;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  background: #f5f9fa;
+
+  border: 1px solid #dce7e9;
+}
+
+.create-post-box h3 {
+  margin-top: 0;
+
+  color: #183f50;
+}
+
+.create-post-box input,
+.create-post-box textarea {
+  width: 100%;
+
+  padding: 13px 15px;
+
+  margin-top: 10px;
+
+  margin-bottom: 10px;
+
+  border: 1px solid #cddcdf;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  font-size: 15px;
+}
+
+.create-post-box input:focus,
+.create-post-box textarea:focus {
+  border-color: #39788a;
+
+  box-shadow:
+    0 0 0 3px rgba(57, 120, 138, 0.1);
+}
+
+.create-post-box textarea {
+  min-height: 120px;
+
+  resize: vertical;
+}
+
+
+/* =========================
+   FORM BUTTONS
+========================= */
+
+.post-form-buttons {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 10px;
+}
+
+.publish-btn,
+.cancel-btn {
+  flex: 1;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  font-weight: bold;
+}
+
+.publish-btn {
+  background: #4f856b;
+
+  color: white;
+}
+
+.publish-btn:hover {
+  background: #3d6f57;
+}
+
+.cancel-btn {
+  background: #e1e8e9;
+
+  color: #38525b;
+}
+
+.cancel-btn:hover {
+  background: #d2dcde;
+}
+
+
+/* =========================
+   POSTS
+========================= */
+
+.posts-section {
+  margin-top: 30px;
+}
+
+.section-title {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 15px;
+}
+
+.section-title h2 {
+  margin: 0;
+
+  color: #183f50;
+}
+
+.section-title span {
+  background: #e7f0f2;
+
+  color: #39788a;
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+
+/* =========================
+   POST CARD
+========================= */
+
+.post-card {
+  padding: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f9fcfc,
+      #eef5f6
+    );
+
+  border: 1px solid #d6e4e6;
+
+  border-radius: 15px;
+
+  animation: mountainAppear 0.4s ease;
+}
+
+.post-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 15px;
+}
+
+.post-tag {
+  display: inline-block;
+
+  color: #39788a;
+
+  font-size: 10px;
+
+  font-weight: bold;
+
+  letter-spacing: 1.5px;
+
+  margin-bottom: 7px;
+}
+
+.post-header h3 {
+  margin: 0;
+
+  color: #183f50;
+
+  font-size: 22px;
+}
+
+.post-content {
+  color: #52676e;
+
+  line-height: 1.7;
+
+  margin-top: 18px;
+}
+
+.post-author {
+  border-top: 1px solid #dce6e8;
+
+  padding-top: 13px;
+
+  margin-top: 15px;
+
+  color: #7d9096;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+.small-delete-btn {
+  padding: 9px 13px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #b94b43;
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+.small-delete-btn:hover {
+  background: #983a34;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   NO POSTS
+========================= */
+
+.no-post {
+  padding: 40px 20px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f3f8f9,
+      #fafcfc
+    );
+
+  border: 1px dashed #c8d9dc;
+
+  border-radius: 15px;
+
+  color: #84969b;
+}
+
+.empty-mountain {
+  font-size: 50px;
+
+  margin-bottom: 10px;
+
+  opacity: 0.7;
+}
+
+.no-post h3 {
+  color: #42606b;
+
+  margin-bottom: 8px;
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+.logout-btn {
+  width: 100%;
+
+  margin-top: 28px;
+
+  padding: 14px;
+
+  border: 1px solid #d5e0e2;
+
+  border-radius: 12px;
+
+  background: #f2f6f7;
+
+  color: #38525b;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  transition: 0.25s;
+}
+
+.logout-btn:hover {
+  background: #e4edef;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes mountainAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .app {
+    padding: 20px 12px;
+  }
+
+  .login-card,
+  .dashboard-card {
+    padding: 25px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 23px;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+  }
+
+  .user-icon {
+    width: 55px;
+
+    height: 55px;
+
+    font-size: 25px;
+  }
+
+  .post-header {
+    flex-direction: column;
+  }
+
+  .post-form-buttons {
+    flex-direction: column;
+  }
+
+  .app::after {
+    font-size: 50px;
+
+    letter-spacing: 10px;
+  }
+}
